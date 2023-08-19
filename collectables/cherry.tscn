@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqr04i4ysj1wp"]
+
+[ext_resource type="Script" path="res://collectables/cherry.gd" id="1_ga0ws"]
+[ext_resource type="Texture2D" uid="uid://bq0ucr7wsvtr6" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-1.png" id="2_8qw6y"]
+[ext_resource type="Texture2D" uid="uid://c5fov081mrceg" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-2.png" id="3_vthsv"]
+[ext_resource type="Texture2D" uid="uid://41oc0pqppud8" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-3.png" id="4_bq7m2"]
+[ext_resource type="Texture2D" uid="uid://dahdsragowysg" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-4.png" id="5_3gday"]
+[ext_resource type="Texture2D" uid="uid://dfvn8eveesgko" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-5.png" id="6_paanw"]
+[ext_resource type="Texture2D" uid="uid://b8ekw7g4ajjv7" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-6.png" id="7_ehu8s"]
+[ext_resource type="Texture2D" uid="uid://bpfmaswo5hwny" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-7.png" id="8_ax443"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sg6m0"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1rfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8qw6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vthsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bq7m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3gday")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_paanw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ehu8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ax443")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="cherry" type="Area2D"]
+script = ExtResource("1_ga0ws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sg6m0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q1rfu")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.989507
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

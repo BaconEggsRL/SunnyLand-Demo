@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://04377pw1tkju"]
+
+[ext_resource type="Script" path="res://BG.gd" id="1_6127y"]
+[ext_resource type="Texture2D" uid="uid://bigvpbflg5whj" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/environment/layers/back.png" id="1_pbqfp"]
+[ext_resource type="Texture2D" uid="uid://rikbgs40a4wi" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/environment/layers/middle.png" id="2_26opb"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_6127y")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(576, 328)
+scale = Vector2(3, 2.73333)
+texture = ExtResource("1_pbqfp")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.895, 1)
+motion_mirroring = Vector2(1232, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(264, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle7" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(88, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(440, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(616, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(792, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(968, 472)
+texture = ExtResource("2_26opb")
+
+[node name="Middle6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1144, 472)
+texture = ExtResource("2_26opb")
