@@ -50,7 +50,7 @@ func _on_player_death_body_exited(body):
 	pass
 	
 func _on_player_collision_body_entered(body):
-	if body.name == "player":
+	if body.name == "player" and dying == false:
 		# add knockback here
 		Game.playerHP -= 3
 		body.hurt = true
@@ -66,8 +66,8 @@ func _on_player_collision_body_entered(body):
 
 func death():
 	dying = true
-	Game.playerGold += 5
-	Utils.saveGame()
+	Game.playerGold += Game.frogValue
+	# Utils.saveGame()
 	chase = false
 	get_node("CollisionShape2D").set_deferred("disabled", true)
 	get_node("AnimatedSprite2D").play("Death")

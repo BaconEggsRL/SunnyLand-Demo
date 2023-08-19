@@ -41,7 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="cherry" type="Area2D"]
+[node name="cherry" type="Area2D" groups=["collectable"]]
 script = ExtResource("1_ga0ws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

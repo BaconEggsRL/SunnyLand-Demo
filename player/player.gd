@@ -10,7 +10,15 @@ var knockback = Vector2(0,0)
 var hurt = false
 
 # Store the animation node so we can access it in functions later at runtime
-@onready var anim = get_node("AnimationPlayer")
+var anim 
+var frogs
+var cherries
+func _ready():
+	anim = get_node("AnimationPlayer")
+	Game.maxFrogs = get_tree().get_nodes_in_group("mob").size()
+	Game.maxCherries = get_tree().get_nodes_in_group("collectable").size()
+	Game.maxGold = Game.maxFrogs * Game.frogValue + Game.maxCherries * Game.cherryValue
+	print(Game.maxGold)
 
 func _physics_process(delta):
 
