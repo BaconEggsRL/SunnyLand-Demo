@@ -4,3 +4,7 @@ res://world.tscn
 res://collectables/cherry.tscn
 res://mobs/frog.tscn
 res://player/player.tscn
+res://player/player.gd
+res://mobs/frog.gd
+res://global/Game.gd
+res://global/Utils.gd

@@ -50,11 +50,16 @@ func _on_player_death_body_exited(body):
 	pass
 	
 func _on_player_collision_body_entered(body):
-	if body.name == "player" and dying == false:
+	if body.name == "player":
 		# add knockback here
 		Game.playerHP -= 3
-		body.knockback.x = velocity.x * 4
 		body.hurt = true
+		# knockback direction
+		if direction.x > 0:
+			body.knockback.x = 200
+		elif direction.x < 0:
+			body.knockback.x = -200
+		# kill frog
 		death()
 		
 		
