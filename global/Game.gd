@@ -1,5 +1,6 @@
 extends Node
 
+var muted = false
 var playerHP = 10
 var playerGold = 0
 var cherryValue = 5

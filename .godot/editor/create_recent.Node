@@ -1,9 +1,10 @@
+Label
+AudioStreamPlayer2D
 Node2D
 Timer
 AnimatedSprite2D
 CollisionShape2D
 Area2D
-Label
 CanvasLayer
 CharacterBody2D
 TileMap

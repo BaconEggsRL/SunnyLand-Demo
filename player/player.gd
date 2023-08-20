@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal mute
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -325.0
 
@@ -71,7 +73,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# death / restart
-	if Game.playerHP <= 0 or Input.is_key_pressed(KEY_R):
+	if Game.playerHP <= 0 or Input.is_action_just_pressed("restart") or position.y > 2048:
 		queue_free()
 		Utils.resetGame()
 		get_tree().change_scene_to_file("res://main.tscn")
+		
+	# mute / unmute sounds
+	if Input.is_action_just_pressed("mute"):
+		mute.emit()

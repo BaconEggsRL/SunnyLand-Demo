@@ -24,5 +24,16 @@ text = "Quit"
 
 [node name="BG" parent="." instance=ExtResource("2_se5gx")]
 
+[node name="Tips" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 298.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press R to restart
+Press M to mute
+WASD or Arrow Keys to move
+Spacebar to Jump"
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
