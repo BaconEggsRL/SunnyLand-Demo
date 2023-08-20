@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1692545463
+::res://::1692558021
 BG.gd::GDScript::-1::1692541355::0::1::::<>ParallaxBackground<>::
 BG.tscn::PackedScene::1816346971975314342::1692405267::0::1::::<><>::res://BG.gd<>uid://bigvpbflg5whj
-export_presets.cfg::TextFile::-1::1692463970::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1692545463::0::1::::<><>::
 icon.svg::CompressedTexture2D::5687896675994482604::1692309966::1692309969::1::::<><>::
 main.gd::GDScript::-1::1692373789::0::1::::<>Node2D<>::
 main.tscn::PackedScene::8290348286745297788::1692545436::0::1::::<><>::res://main.gd<>uid://04377pw1tkju::::res://BG.tscn
@@ -253,7 +253,7 @@ index.png::CompressedTexture2D::8642064679005644188::1692461722::1692462132::1::
 index.apple-touch-icon.png::CompressedTexture2D::7907680405571938951::1692463969::1692464125::1::::<><>::
 index.icon.png::CompressedTexture2D::8990909067233088723::1692463969::1692464125::1::::<><>::
 index.png::CompressedTexture2D::8255065456935071296::1692463969::1692464125::1::::<><>::
-::res://_exports/v0.032/::1692545472
+::res://_exports/v0.032/::1692545844
 index.apple-touch-icon.png::CompressedTexture2D::4782119122560665415::1692545462::1692545844::1::::<><>::
 index.icon.png::CompressedTexture2D::6116951653140889814::1692545462::1692545844::1::::<><>::
 index.png::CompressedTexture2D::9067269148999685381::1692545462::1692545844::1::::<><>::
