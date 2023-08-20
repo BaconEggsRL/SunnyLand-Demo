@@ -1,10 +1,7 @@
-res://world.tscn
-res://BG.gd
-res://main.tscn
-res://collectables/cherry.tscn
 res://mobs/frog.tscn
-res://player/player.tscn
+res://BG.gd
 res://mobs/frog.gd
-res://player/player.gd
-res://collectables/cherry.gd
-res://global/Game.gd
+res://main.tscn
+res://world.tscn
+res://collectables/cherry.tscn
+res://player/player.tscn

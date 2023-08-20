@@ -30,7 +30,9 @@ func _physics_process(delta):
 	if not hurt:
 		
 		# Handle Jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if (
+			(Input.is_action_just_pressed("ui_up")
+			) and is_on_floor()):
 			velocity.y = JUMP_VELOCITY
 			anim.play("Jump")
 			
@@ -39,15 +41,15 @@ func _physics_process(delta):
 		direction = Input.get_axis("ui_left", "ui_right")
 		
 		# flip direction of animation
-		if direction == -1:
+		if direction < 0:
 			get_node("AnimatedSprite2D").flip_h = true
-		elif direction == 1:
+		elif direction > 0:
 			get_node("AnimatedSprite2D").flip_h = false
 		
 		if direction: # true if vector is non-zero (-1 or 1)
 			velocity.x = (direction * SPEED)
 			if velocity.y == 0:
-					anim.play("Run")
+				anim.play("Run")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			if velocity.y == 0:

@@ -1,9 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://hv13nrkslxgi"]
+[gd_scene load_steps=24 format=3 uid="uid://hv13nrkslxgi"]
 
 [ext_resource type="Script" path="res://mobs/frog.gd" id="1_actxw"]
 [ext_resource type="Texture2D" uid="uid://isdh7vgv6tsx" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/spritesheets/enemy-deadth.png" id="2_51ynk"]
+[ext_resource type="Texture2D" uid="uid://ckh5cunepydi7" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/jump/frog-jump-2.png" id="3_3xl1v"]
 [ext_resource type="Texture2D" uid="uid://c6phorl5s0dc2" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/spritesheets/frog-idle.png" id="3_vyhnd"]
 [ext_resource type="Texture2D" uid="uid://15jansfhmxag" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/spritesheets/frog-jump.png" id="4_hsgbq"]
+[ext_resource type="Texture2D" uid="uid://c3tldfw4gbwe6" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/idle/frog-idle-1.png" id="5_yhvr5"]
+[ext_resource type="Texture2D" uid="uid://c8f3l1a5yxwdt" path="res://assets/Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/jump/frog-jump-1.png" id="6_kxlft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtwi3"]
 size = Vector2(19, 11)
@@ -48,17 +51,9 @@ region = Rect2(70, 0, 35, 32)
 atlas = ExtResource("3_vyhnd")
 region = Rect2(105, 0, 35, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pp6q7"]
-atlas = ExtResource("4_hsgbq")
-region = Rect2(0, 0, 35, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_opxj5"]
 atlas = ExtResource("4_hsgbq")
 region = Rect2(35, 0, 35, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3oc7"]
-atlas = ExtResource("4_hsgbq")
-region = Rect2(70, 0, 35, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6m41m"]
 animations = [{
@@ -84,6 +79,14 @@ animations = [{
 "loop": false,
 "name": &"Death",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3xl1v")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,16 +122,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pp6q7")
+"texture": ExtResource("5_yhvr5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_opxj5")
+"texture": ExtResource("6_kxlft")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p3oc7")
+"texture": ExtResource("3_3xl1v")
 }],
 "loop": true,
 "name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opxj5")
+}],
+"loop": true,
+"name": &"Up",
 "speed": 5.0
 }]
 
@@ -151,7 +162,7 @@ shape = SubResource("RectangleShape2D_gtwi3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -11)
 sprite_frames = SubResource("SpriteFrames_6m41m")
-animation = &"Idle"
+animation = &"Jump"
 metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="."]
