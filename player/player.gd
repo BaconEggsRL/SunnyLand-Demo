@@ -2,8 +2,14 @@ extends CharacterBody2D
 
 signal mute
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -325.0
+const SPEED := 200.0
+const JUMP_VELOCITY := -325.0
+
+
+# coyote timer and jump buffer
+var is_jumping = false
+@onready var coyote_timer = $CoyoteTimer
+@onready var jump_buffer = $JumpBuffer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,21 +28,34 @@ func _ready():
 	Game.maxGold = Game.maxFrogs * Game.frogValue + Game.maxCherries * Game.cherryValue
 	print(Game.maxGold)
 
+# actions to perform when jumping (both player controlled or frog hopping)
+func jump(vel : float = self.JUMP_VELOCITY):
+	# prevent double jumps
+	jump_buffer.stop()
+	coyote_timer.stop()
+	# jump
+	velocity.y = vel
+	anim.play("Jump")
+	is_jumping = true
+
+
 func _physics_process(delta):
 
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	# Actions only when not hurt
+	if velocity.y >= 0:
+		is_jumping = false
+		
+	# Perform actions only when not hurt
 	if not hurt:
 		
 		# Handle Jump.
-		if (
-			(Input.is_action_just_pressed("ui_up")
-			) and is_on_floor()):
-			velocity.y = JUMP_VELOCITY
-			anim.play("Jump")
+		if Input.is_action_just_pressed("ui_up"):
+			if is_on_floor() or !coyote_timer.is_stopped():
+				self.jump()
+			else:
+				jump_buffer.start()
 			
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -69,9 +88,14 @@ func _physics_process(delta):
 		if knockback.x == 0:
 			hurt = false
 	
-	# velocity prior to collision
+	# coyote
+	var was_on_floor = is_on_floor()
 	move_and_slide()
-	
+	if was_on_floor and !is_on_floor() and !is_jumping:
+		coyote_timer.start()
+	if is_on_floor() and !jump_buffer.is_stopped() and !is_jumping:
+		self.jump()
+
 	# death / restart
 	if Game.playerHP <= 0 or Input.is_action_just_pressed("restart") or position.y > 2048:
 		queue_free()

@@ -280,7 +280,6 @@ shape = SubResource("CapsuleShape2D_s4b5w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mty7f")
 animation = &"Hurt"
-frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -293,4 +292,10 @@ libraries = {
 "": SubResource("AnimationLibrary_wifgv")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.14
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true

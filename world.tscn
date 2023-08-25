@@ -432,7 +432,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text = \"HP: \" + str(Game.playerHP)
 "
 
@@ -446,7 +446,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text = \"Gold: \" + str(Game.playerGold) + \"/\" + str(Game.maxGold)
 "
 
@@ -460,7 +460,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Game.playerGold == Game.maxGold:
 		text = \":)\"
 	else:
